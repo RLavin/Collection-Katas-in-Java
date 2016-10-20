@@ -1,5 +1,6 @@
 package com.ironyard;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -33,6 +34,11 @@ public class main {
         testmapABExample2();
         testmapABExample3();
         testwordLenExample();
+        testwordLenExample2();
+        testwordLenExample3();
+        testindexwordsExample();
+        testindexwordsExample2();
+        testindexwordsExample3();
 
 
 
@@ -340,15 +346,61 @@ public class main {
     }
 
     private static void testwordLenExample(){
-        ArrayList<String>  data = new ArrayList<>();
-        data.add("a");
-        data.add("bb");
-        data.add("a");
-        data.add("bb");
-        Object x = data.clone();
-        katas.wordLen(data);
+
+        String[] tmp = new String[]{"a", "bb", "a", "bb"};
+        String[] saved = tmp.clone();
+
+        Map<String, Integer> data =  katas.wordLen(tmp);
+
+        System.out.println("wordLen(\"" + Arrays.toString(saved) + "\") -> (\""+(data)+"\")");
+
+    }
 
 
-        System.out.printf("wordLen(%s) -> %s\n", x, data);
+    private static void testwordLenExample2(){
+
+        String[] tmp = new String[]{"this", "and", "that", "and"};
+        String[] saved = tmp.clone();
+        Map<String, Integer> data =  katas.wordLen(tmp);
+
+        System.out.println("wordLen(\"" + Arrays.toString(saved) + "\") -> (\""+(data)+"\")");
+    }
+
+    private static void testwordLenExample3(){
+
+        String[] tmp = new String[]{"code", "code", "code", "bug"};
+        String[] saved = tmp.clone();
+        Map<String, Integer> data =  katas.wordLen(tmp);
+
+        System.out.println("wordLen(\"" + Arrays.toString(saved) + "\") -> (\""+(data)+"\")");
+    }
+
+
+    private static void testindexwordsExample(){
+        String[] tmp = new String[]{"aardvark", "apple", "zamboni", "phone"};
+        String[] saved = tmp.clone();
+
+        Map<String, String> map =katas.indexwords(tmp);
+        System.out.println("IndexWords(\"" + Arrays.toString(saved) + "\") -> (\""+(map)+"\")");
+
+    }
+
+    private static void testindexwordsExample2(){
+        String[] tmp = new String[]{"elephant"};
+        String[] saved = tmp.clone();
+
+        Map<String, String> map =katas.indexwords(tmp);
+        System.out.println("IndexWords(\"" + Arrays.toString(saved) + "\") -> (\""+(map)+"\")");
+
+    }
+
+
+    private static void testindexwordsExample3(){
+        String[] tmp = new String[]{};
+        String[] saved = tmp.clone();
+
+        Map<String, String> map =katas.indexwords(tmp);
+        System.out.println("IndexWords(\"" + Arrays.toString(saved) + "\") -> (\""+(map)+"\")");
+
     }
 }

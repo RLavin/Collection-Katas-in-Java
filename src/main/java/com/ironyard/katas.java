@@ -41,15 +41,15 @@ public class katas {
     }
 
 
-    public static int sumFirstPenultimate(List<Integer>numb) {
+    public static int sumFirstPenultimate(List<Integer>z) {
         int x = 0;
-        if (numb.size() >= 2) {
-            int firstElement = numb.get(0);
-            int secondToLast = numb.get(numb.size() - 2);
+        if (z.size() >= 2) {
+            int firstElement = z.get(0);
+            int secondToLast = z.get(z.size() - 2);
 
             x = firstElement + secondToLast;
         } else {
-            x =numb.get(0) + numb.get(1);
+            x =z.get(0) + z.get(1);
         }
 
          return x;
@@ -84,13 +84,36 @@ public class katas {
 
     }
 
-        public static Map<String, Integer> wordLen(String[] strings) {
-            Map<String, Integer> map = new HashMap();
-            for (String s:strings){
-                map.put(s, s.length());
+    public static Map<String, Integer> wordLen(String[] data) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String str : data) {
+            if (map.get(str) == null){
+                map.put(str, str.length());
             }
-            return map;
         }
+        return map;
+
+    }
+
+    public static Map<String, String> indexwords(String[] strings){
+        Map<String, String> map = new HashMap<>();
+
+        for (int i = 0; i < strings.length; i++) {
+
+            String key = String.valueOf(strings[i].charAt(0));
+
+            if (map.containsKey(key)) {
+                String val = map.get(key) + strings[i];
+                map.put(key, val);
+            } else {
+                map.put(key, strings[i]);
+            }
+
+        }
+        return map;
+
+
+    }
 
 
 
