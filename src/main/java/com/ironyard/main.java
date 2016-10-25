@@ -41,10 +41,6 @@ public class main {
         testindexwordsExample3();
 
 
-
-
-
-
     }
 
     private static void testfirstLast6Example() {
@@ -377,30 +373,37 @@ public class main {
 
 
     private static void testindexwordsExample(){
-        String[] tmp = new String[]{"aardvark", "apple", "zamboni", "phone"};
-        String[] saved = tmp.clone();
+        ArrayList<String>  data = new ArrayList<>();
+        data.add("aardvark");
+        data.add("apple");
+        data.add("zamboni");
+        data.add("phone");
+        ArrayList<String>  saved = (ArrayList<String>) data.clone();
 
-        Map<String, String> map =katas.indexwords(tmp);
-        System.out.println("IndexWords(\"" + Arrays.toString(saved) + "\") -> (\""+(map)+"\")");
+        Map<String, List>  stringList =katas.indexwords(data);
+        System.out.printf("IndexWords(%s) -> %s\n", saved, stringList);
 
     }
 
     private static void testindexwordsExample2(){
-        String[] tmp = new String[]{"elephant"};
-        String[] saved = tmp.clone();
+        ArrayList<String>  data = new ArrayList<>();
+        data.add("elephant");
+        ArrayList<String>  saved = (ArrayList<String>) data.clone();
 
-        Map<String, String> map =katas.indexwords(tmp);
-        System.out.println("IndexWords(\"" + Arrays.toString(saved) + "\") -> (\""+(map)+"\")");
+        Map<String, List>  stringList =katas.indexwords(data);
+        System.out.printf("IndexWords(%s) -> %s\n", saved, stringList);
 
     }
-
 
     private static void testindexwordsExample3(){
-        String[] tmp = new String[]{};
-        String[] saved = tmp.clone();
+        ArrayList<String>  data = new ArrayList<>();
+        data.add("");
+        ArrayList<String>  saved = (ArrayList<String>) data.clone();
 
-        Map<String, String> map =katas.indexwords(tmp);
-        System.out.println("IndexWords(\"" + Arrays.toString(saved) + "\") -> (\""+(map)+"\")");
+        Map<String, List>  stringList =katas.indexwords(data);
+        System.out.printf("IndexWords(%s) -> %s\n", saved, stringList);
 
     }
+
+
 }
